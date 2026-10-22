@@ -9,15 +9,18 @@ Copia el bloque de abajo una vez por cada falla que encuentres. Llénalo en el m
 
 ## Falla N (Parte 1 / Ticket N / F1 / F2 / Extra)
 
-**Síntoma:** qué viste. Pega la última línea del error o describe el comportamiento.
+### parte 1
 
-**Causa raíz:** por qué pasaba. Explícalo como se lo explicarías a Kevin.
+**Síntoma:** error al hacer las migraciones, asi mismo al relacionar su disciplina con su nombre. Error de que deberia de ser unico, y no se podian crear por ser duplicados
 
-**Corrección:** qué cambiaste y en qué archivo(s).
+**Causa raíz:** el problema de las migraciones se encontraba en las settings.py, ya que no se declaraba en INSTALLED_APPS la base de datos, posteriormente, al momento de cargar los datos, se tenia como create la disciplina, lo que hacia que no se pudieran mandar las tuplas
 
-**Verificación:** cómo comprobaste que quedó (comando, URL, consulta en el shell, prueba).
+**Corrección:** settings.py: se agrego la DB, */'gimnasio',/*, y en cargar_datos, se cambio a get_or_create, para evitar el problema de los duplicados, asi mismo se agregaron modifico el parametro para recibir las tuplas, y se agrego *.strip()*. *disciplina, _ = Disciplina.objects.get_or_create(nombre=fila["disciplina"].strip())*
 
-**Commit:** el mensaje del commit de esta corrección.
+**Verificación:** se pudieron generar las migraciones marcando OK, y se agregaron los datos, enviando el mensaje de creados
+
+**Commit:** actualizacion: no se declaraba la base de datos en INSTALLED APP por lo que no se podia migrar
+actualizaion de la clase Disciplina y de la carga de datos para que el nombre de la disciplina sea unico y se pueda crear correctamente asi  como del archivo cargar_datos.py para que se cree la disciplina si no existe y se asigne a la clase correspondiente
 
 ---
 
