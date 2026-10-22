@@ -1,7 +1,7 @@
 # Bitácora del examen
 
-**Nombre:**
-**Repositorio:**
+**Nombre:** Edna Samantha Cortes Carrisoza
+**Repositorio:** https://github.com/Zammcrts/Examen2-TA-Cortes.git
 
 Copia el bloque de abajo una vez por cada falla que encuentres. Llénalo en el momento, no al final.
 
