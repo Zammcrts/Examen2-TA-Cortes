@@ -49,7 +49,7 @@ actualizaion de la clase Disciplina y de la carga de datos para que el nombre de
 
 **Commit:** acualizacion: se cambio el rango de verificacion para mostrar las clases, pasando de LTE a LT
 
-#### ticket 2
+#### ticket 3
 
 **Síntoma:** En el buscador (/clases/buscar/) escribo 'yoga' y salen 39 resultados. Solo tenemos 4 clases de yoga.
 
@@ -60,7 +60,18 @@ actualizaion de la clase Disciplina y de la carga de datos para que el nombre de
 **Verificación:** se muestran ahora 4 clases correspondientes a yoga
 
 **Commit:** actualizacion> se arreglo la que en la busqueda se mostraran repetidos, de forma que ahora se muestran filtrados
----
+
+#### ticket 4
+
+**Síntoma:** "La app de recepción intenta crear una clase nueva por la API y el servidor responde error 500." La app envía esto, y la respuesta debe ser 201:
+
+**Causa raíz:** la url que se esta consultando no esta 
+
+**Corrección:** -
+
+**Verificación:** -
+
+**Commit:** -
 
 ## Declaración de uso de IA
 
@@ -69,3 +80,6 @@ Marca una opción.
 - [ ] No usé asistentes de IA en este examen.
 - [ ] Sí usé asistentes de IA. Para cada uso: herramienta, qué le pedí, qué usé de su respuesta y qué revisé o cambié yo.
 se empleo chatgpt ya que el intentar arreglar la primera parte relacionado con la integridad de datos, termine cambiando mas de lo que deberia, generando errores que no conocia. Se me apoyo corrigiendo esos errores para regresarle su integridad
+
+
+## se revisaron los archivos de clases pasas para contrastar la logica
