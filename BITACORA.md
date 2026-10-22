@@ -22,6 +22,19 @@ Copia el bloque de abajo una vez por cada falla que encuentres. Llénalo en el m
 **Commit:** actualizacion: no se declaraba la base de datos en INSTALLED APP por lo que no se podia migrar
 actualizaion de la clase Disciplina y de la carga de datos para que el nombre de la disciplina sea unico y se pueda crear correctamente asi  como del archivo cargar_datos.py para que se cree la disciplina si no existe y se asigne a la clase correspondiente
 
+
+### parte 2
+#### ticket 1
+
+**Síntoma:** pantalla amarilla al momento de arrancar la app
+
+**Causa raíz:** las urls no coincidian con clase_lista.html y la pantilla de urls
+
+**Corrección:** se cambio *td><a href="{% url 'detalle_clase' clase.pk %}">{{ clase.codigo }}</a></td>* por *<td><a href="{% url 'clase_detalle' clase.pk %}">{{ clase.codigo }}</a></td>*
+
+**Verificación:** ya no se muestra la pantalla amarilla
+
+**Commit:** actualizacion: se arreglo el primer ticket poniendo la referencia de forma correcta a las urls
 ---
 
 ## Declaración de uso de IA
