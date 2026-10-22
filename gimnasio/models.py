@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class Disciplina(models.Model):
-    nombre = models.CharField(max_length=40)
+    nombre = models.CharField(max_length=40, unique=True)
 
     class Meta:
         ordering = ["nombre"]
