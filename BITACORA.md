@@ -37,7 +37,7 @@ actualizaion de la clase Disciplina y de la carga de datos para que el nombre de
 **Commit:** actualizacion: se arreglo el primer ticket poniendo la referencia de forma correcta a las urls
 
 
-#### ticket 1
+#### ticket 2
 
 **Síntoma:** La página principal dice que hay 20 clases con lugares disponibles, y no puede ser: Spinning del lunes a las 7:00 (SPN-01) está llena, 20 de 20, y Box del viernes (BOX-03) se canceló. Las dos salen en ?con_lugar=1." Una clase tiene lugar si está activa y tiene menos inscritos que su cupo. Con los datos de recepción deben ser 16.
 
@@ -48,6 +48,18 @@ actualizaion de la clase Disciplina y de la carga de datos para que el nombre de
 **Verificación:** se muestran ahora 16 clases
 
 **Commit:** acualizacion: se cambio el rango de verificacion para mostrar las clases, pasando de LTE a LT
+
+#### ticket 2
+
+**Síntoma:** En el buscador (/clases/buscar/) escribo 'yoga' y salen 39 resultados. Solo tenemos 4 clases de yoga.
+
+**Causa raíz:** se mostraban datos repetidos el problema *.select_related("disciplina")*
+
+**Corrección:** se anadio *.distinct().select_related("disciplina")*
+
+**Verificación:** se muestran ahora 4 clases correspondientes a yoga
+
+**Commit:** actualizacion> se arreglo la que en la busqueda se mostraran repetidos, de forma que ahora se muestran filtrados
 ---
 
 ## Declaración de uso de IA
