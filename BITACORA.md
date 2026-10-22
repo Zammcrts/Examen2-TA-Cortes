@@ -35,6 +35,19 @@ actualizaion de la clase Disciplina y de la carga de datos para que el nombre de
 **Verificación:** ya no se muestra la pantalla amarilla
 
 **Commit:** actualizacion: se arreglo el primer ticket poniendo la referencia de forma correcta a las urls
+
+
+#### ticket 1
+
+**Síntoma:** La página principal dice que hay 20 clases con lugares disponibles, y no puede ser: Spinning del lunes a las 7:00 (SPN-01) está llena, 20 de 20, y Box del viernes (BOX-03) se canceló. Las dos salen en ?con_lugar=1." Una clase tiene lugar si está activa y tiene menos inscritos que su cupo. Con los datos de recepción deben ser 16.
+
+**Causa raíz:** el filtrado en el models.py *return self.annotate(num_inscritos=Count("inscritos")).filter(num_inscritos__lte=F("cupo")* ya que el parametro es LTE por lo que hasta los que estan llenos pasan a ser contabilizados
+
+**Corrección:** se cambio *num_inscritos__lt=F("cupo")* cambiando LTE a LT, posteriormente se arreglo el *estado=Clase.Estado.ACTIVA*, para solo contabilizar los que esten con estado activo y no llenos
+
+**Verificación:** se muestran ahora 16 clases
+
+**Commit:** acualizacion: se cambio el rango de verificacion para mostrar las clases, pasando de LTE a LT
 ---
 
 ## Declaración de uso de IA
@@ -43,3 +56,4 @@ Marca una opción.
 
 - [ ] No usé asistentes de IA en este examen.
 - [ ] Sí usé asistentes de IA. Para cada uso: herramienta, qué le pedí, qué usé de su respuesta y qué revisé o cambié yo.
+se empleo chatgpt ya que el intentar arreglar la primera parte relacionado con la integridad de datos, termine cambiando mas de lo que deberia, generando errores que no conocia. Se me apoyo corrigiendo esos errores para regresarle su integridad
